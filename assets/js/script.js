@@ -1,4 +1,3 @@
-savedTasks = []
 var currentHour = moment().hour()
 
 var createTimeBlock = function (hour) {
@@ -27,18 +26,16 @@ var createTimeBlock = function (hour) {
     descriptionEl.placeholder = "To do"
     buttonEl.textContent = "🔓︎"
 
+    buttonEl.addEventListener("click", function () {
+        var text = descriptionEl.value;
+        localStorage.setItem("savedTasks", text);
+    }, false);
+
     rowEl.append(hourEl, descriptionEl, buttonEl)
     document.querySelector(".container").append(rowEl)
-
-    var text = descriptionEl.value;
-
-    buttonEl.addEventListener("click", function () {
-        var data = text
-        localStorage.setItem("input", input);
-        console.log("text saved")
-    }, false);
 }
 
 for (var hour = 8; hour <= 24; hour++) {
     createTimeBlock(hour)
 }
+As
