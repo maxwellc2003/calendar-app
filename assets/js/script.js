@@ -1,4 +1,8 @@
-var currentHour = moment().hour()
+var currentHour = moment().hour();
+var currentDay = moment().format('YYYY-MM-DD')
+
+var currentDayEl = document.getElementById("currentDay")
+currentDayEl.textContent = currentDay
 
 var createTimeBlock = function (hour) {
     var rowEl = document.createElement("div")
@@ -35,7 +39,6 @@ var createTimeBlock = function (hour) {
     document.querySelector(".container").append(rowEl)
 }
 
-for (var hour = 8; hour <= 24; hour++) {
+for (var hour = 8; hour <= 22; hour++) {
     createTimeBlock(hour)
 }
-As
